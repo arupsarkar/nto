@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, StyleSheet, Image, TextInput} from 'react-native';
+import {View, Text, FlatList, StyleSheet, Image, TextInput, Button} from 'react-native';
 
 export default class ShoppingCart extends Component{
+
+
+    buy = () => {
+        console.log('Buy button pressed.');
+        const item = this.props.item;
+        console.log('Buy item:', item);
+    };
 
     render(): React.ReactElement<any> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         const item = this.props.navigation.getParam('item');
@@ -30,6 +37,10 @@ export default class ShoppingCart extends Component{
                         resizeMode="contain"
                     />
                 </View>
+                <Button
+                    title="Buy"
+                    onPress={this.buy}>
+                </Button>
             </View>
 
 
