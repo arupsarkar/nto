@@ -48,6 +48,10 @@ export default class ProductRow extends Component{
                     <View style={styles.nameAddress}>
 
                         {renderIf(this.state.status)(
+                            <Text>{item.Pricebook2.Id}</Text>
+                        )}
+
+                        {renderIf(this.state.status)(
                             <Text>{item.Product2.Id}</Text>
                         )}
 

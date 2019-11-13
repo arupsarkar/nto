@@ -31,7 +31,7 @@ export default class ProductList extends Component{
     }
     fetchData() {
         var that = this;
-        let queryString = 'SELECT Product2.Id, Product2.Name,Product2.Description, ' +
+        let queryString = 'SELECT Pricebook2.Id, Product2.Id, Product2.Name,Product2.Description, ' +
             'Product2.Default_Price__c, Product2.Image_URL__c,Product2.Rating__c, Product2.Inventory__c ' +
             'FROM PriceBookEntry ' +
             'WHERE Pricebook2.Name = \'Northern Trails Outfitters\' ' +

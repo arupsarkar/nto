@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, FlatList, StyleSheet, Image, TextInput, Button} from 'react-native';
 import {oauth, net} from 'react-native-force';
+import getPBEId from "../Utils/getPriceBookEntryId";
 
 export default class ShoppingCart extends Component{
 
@@ -22,7 +23,9 @@ export default class ShoppingCart extends Component{
     state = {
         orderItem: []
     }
-
+    state = {
+        pbeId: ''
+    }
     componentDidMount(): void {
         var that = this;
         oauth.getAuthCredentials(
@@ -72,7 +75,7 @@ export default class ShoppingCart extends Component{
                 "Product2Id": this.state.productItem.Product2.Id,
                 "Quantity": 1,
                 "UnitPrice": this.state.productItem.Product2.Default_Price__c,
-                "PricebookEntryId": '01uB0000000nnACIAY'
+                "PricebookEntryId": that.state.pbeId
             },
             (response) => {
                 console.log('Order Item record created: ', response);
@@ -99,13 +102,18 @@ export default class ShoppingCart extends Component{
         let yyyy = today.getFullYear();
         today = mm + '/' + dd + '/' + yyyy;
         let effectiveDate = new Date(today);
+        //get the PBE Id
+        let priceBookEntryId = getPBEId(this.state.productItem.attributes.url);
+        that.state.pbeId = priceBookEntryId;
+        console.log('pbe id', that.state.pbeId);
+        console.log('pb id', this.state.productItem.Pricebook2.Id);
 
         //create an order
         net.create('Order',
             {
                 "AccountId": this.state.account[0].Id,
                 "OwnerId": this.state.user[0].Id,
-                "Pricebook2Id": "01sB0000001Sdc7IAC",
+                "Pricebook2Id": this.state.productItem.Pricebook2.Id,
                 "EffectiveDate": effectiveDate,
                 "Status": "Draft"
             },
