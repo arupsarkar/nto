@@ -74,6 +74,9 @@ export const App = StackNavigator(
         },
         ShoppingCart: {
             screen: ShoppingCart,
+        },
+        Home: {
+            screen: UserListScreen
         }
     },
     {

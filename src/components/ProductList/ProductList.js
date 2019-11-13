@@ -5,7 +5,9 @@ import {oauth, net} from 'react-native-force';
 import ProductRow from "../ProductRow/ProductRow";
 import nto from "../../images/nto.png";
 export default class ProductList extends Component{
-
+    static navigationOptions = {
+        title: 'Northern Trail Outfitters'
+    };
 
     state = {
         account: []
