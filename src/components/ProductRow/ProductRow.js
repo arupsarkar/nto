@@ -6,7 +6,7 @@ import {
     TouchableHighlight,
     Image,
     Button,
-    TouchableOpacity
+    TouchableOpacity, ScrollView
 } from 'react-native'
 import { withNavigation } from 'react-navigation';
 import renderIf from "../Utils/renderIf";
@@ -45,6 +45,19 @@ export default class ProductRow extends Component{
 
         return(
             <View key={item.name} style={{ backgroundColor: index % 2 === 0 ? 'white' : '#F3F3F7' }}>
+
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'stretch',
+                    paddingTop: 20,
+                    paddingBottom: 50,
+                    paddingLeft: 10,
+                    paddingRight: 10
+                }}>
+
+
                 <View style={styles.row}>
                     <View style={styles.nameAddress}>
 
@@ -105,7 +118,7 @@ export default class ProductRow extends Component{
                         <Text style={styles.buttonText}>Add to Cart</Text>
                     </TouchableHighlight>
                 </View>
-
+                </View>
             </View>
         );
     }

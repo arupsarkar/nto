@@ -140,7 +140,9 @@ export default class ShoppingCart extends Component{
                 justifyContent: 'center',
                 alignItems: 'stretch',
                 paddingTop: 20,
-                paddingBottom: 50
+                paddingBottom: 50,
+                paddingLeft: 10,
+                paddingRight: 10
             }}>
                 <Text>{item.Product2.Name}</Text>
                 <Text style={styles.addressText}>{item.Product2.Description}</Text>

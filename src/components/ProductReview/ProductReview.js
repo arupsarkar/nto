@@ -33,31 +33,46 @@ export default class ProductReview extends Component{
         this.state.productItem = item;
         return (
             <ScrollView style={styles.root}>
-                <View style={styles.infoHeader}>
-                    <Image
-                        source={{
-                            uri: item.Product2.Image_URL__c
-                        }}
-                        style={styles.image}
-                        resizeMode="contain"
-                    />
-                </View>
 
-                <View style={styles.info}>
-                    <Text style={styles.name}>{item.Product2.Name}</Text>
-                    <Text style={styles.address}>{item.Product2.Description}</Text>
-                    <View style={styles.edges}>
-                        {/*<Button*/}
-                        {/*    title="Add Review"*/}
-                        {/*    onPress={this.addReview}>*/}
-                        {/*</Button>*/}
+
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'stretch',
+                    paddingTop: 20,
+                    paddingBottom: 50,
+                    paddingLeft: 10,
+                    paddingRight: 10
+                }}>
+
+
+                    <View style={styles.infoHeader}>
+                        <Image
+                            source={{
+                                uri: item.Product2.Image_URL__c
+                            }}
+                            style={styles.image}
+                            resizeMode="contain"
+                        />
+                    </View>
+
+                    <View style={styles.info}>
+                        <Text style={styles.name}>{item.Product2.Name}</Text>
+                        <Text style={styles.address}>{item.Product2.Description}</Text>
                         <View style={styles.edges}>
-                            <TouchableHighlight
-                                onPress={ this.addReview}
-                                style={styles.button}
-                                underlayColor='#5398DC'>
-                                <Text style={styles.buttonText}>Add Review</Text>
-                            </TouchableHighlight>
+                            {/*<Button*/}
+                            {/*    title="Add Review"*/}
+                            {/*    onPress={this.addReview}>*/}
+                            {/*</Button>*/}
+                            <View style={styles.edges}>
+                                <TouchableHighlight
+                                    onPress={ this.addReview}
+                                    style={styles.button}
+                                    underlayColor='#5398DC'>
+                                    <Text style={styles.buttonText}>Add Review</Text>
+                                </TouchableHighlight>
+                            </View>
                         </View>
                     </View>
                 </View>
