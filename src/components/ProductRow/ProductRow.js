@@ -42,8 +42,6 @@ export default class ProductRow extends Component{
             index
         } = this.props;
 
-        console.log('ProductRow() name ', item.Product2.name);
-        console.log('ProductRow() description ', item.Product2.description);
         return(
             <View key={item.name} style={{ backgroundColor: index % 2 === 0 ? 'white' : '#F3F3F7' }}>
                 <View style={styles.row}>

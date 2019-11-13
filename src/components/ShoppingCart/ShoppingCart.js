@@ -1,17 +1,129 @@
 import React, {Component} from 'react';
 import {View, Text, FlatList, StyleSheet, Image, TextInput, Button} from 'react-native';
+import {oauth, net} from 'react-native-force';
 
 export default class ShoppingCart extends Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            productItem: ''
+        } ;
+    }
+    state = {
+        user: []
+    };
+    state = {
+        account: []
+    };
+    state = {
+        order: []
+    }
+    state = {
+        orderItem: []
+    }
+
+    componentDidMount(): void {
+        var that = this;
+        oauth.getAuthCredentials(
+            (response) => {
+                console.log('Shopping cart : ', response.userId);
+                that.fetchUserName(response.userId);
+            }, // already logged in
+            () => {
+                oauth.authenticate(
+                    (response) => {
+                        console.log('oauth.authenticate: ', response);
+                    },
+                    (error) => console.log('Failed to authenticate:' + error)
+                );
+            });
+    }
+    fetchUserName(userId) {
+        var that = this;
+        console.log('fetchUserName: Start');
+        let queryString = 'SELECT Id, Name FROM User WHERE Id = \'' + userId + '\'';
+
+        net.query(queryString,
+            (response) => {
+                that.setState({user: response.records})
+                let queryAccountString = 'SELECT Id, Name FROM Account WHERE Name = \'' + this.state.user[0].Name + '\'';
+                //get the account id
+                net.query(queryAccountString,
+                    (response) => {
+                    that.setState({account: response.records})
+                },
+                    (err) => {
+                        console.log('Error:', err);
+                    });
+
+
+            }
+        );
+        console.log('fetchUserName: End');
+    }
+
+    createOrderItem = () => {
+        var that = this;
+        //create an order item
+        net.create('OrderItem',
+            {
+                "OrderId": that.state.order.id,
+                "Product2Id": this.state.productItem.Product2.Id,
+                "Quantity": 1,
+                "UnitPrice": this.state.productItem.Product2.Default_Price__c,
+                "PricebookEntryId": '01uB0000000nnACIAY'
+            },
+            (response) => {
+                console.log('Order Item record created: ', response);
+                that.setState({orderItem: response})
+                console.log('Order Item record : ', that.state.orderItem.id);
+            },
+            (err) => {
+                console.log('OrderItem record creation failed: ', err);
+            });
+    }
 
     buy = () => {
+        var that = this;
         console.log('Buy button pressed.');
-        const item = this.props.item;
-        console.log('Buy item:', item);
+        console.log('user name :', this.state.user[0].Name);
+        console.log('account name :', this.state.account[0].Name);
+        console.log('account Id :', this.state.account[0].Id);
+        console.log('product :', this.state.productItem);
+        console.log('product :', this.state.productItem.Product2.Name);
+        console.log('pbe url :', this.state.productItem.attributes.url);
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        let effectiveDate = new Date(today);
+
+        //create an order
+        net.create('Order',
+            {
+                "AccountId": this.state.account[0].Id,
+                "OwnerId": this.state.user[0].Id,
+                "Pricebook2Id": "01sB0000001Sdc7IAC",
+                "EffectiveDate": effectiveDate,
+                "Status": "Draft"
+            },
+            (response) => {
+                console.log('Order record created: ', response);
+                that.setState({order: response})
+                console.log('Order record : ', that.state.order.id);
+                that.createOrderItem();
+            },
+            (err) => {
+                console.log('Order record creation failed: ', err);
+            });
+
     };
 
     render(): React.ReactElement<any> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         const item = this.props.navigation.getParam('item');
+        this.state.productItem = item;
         return (
 
             <View style={{

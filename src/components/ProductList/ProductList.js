@@ -7,7 +7,9 @@ import nto from "../../images/nto.png";
 export default class ProductList extends Component{
 
 
-
+    state = {
+        account: []
+    };
 
     state = {
         search: null,
@@ -16,7 +18,10 @@ export default class ProductList extends Component{
     componentDidMount(): void {
         var that = this;
         oauth.getAuthCredentials(
-            () => that.fetchData(), // already logged in
+            (response) => {
+                that.fetchData();
+                that.searchAccount(response.userId);
+            }, // already logged in
             () => {
                 oauth.authenticate(
                     () => that.fetchData(),
@@ -33,8 +38,58 @@ export default class ProductList extends Component{
             'AND (Product2.Image_URL__c != null AND  Product2.Default_Price__c != null) '+
             'ORDER BY Product2.Name';
         net.query(queryString,
-            (response) => that.setState({product: response.records})
+            (response) => {
+                that.setState({product: response.records}) ;
+
+            },
+            (err) => {
+                console.log('Error fetching products:', err);
+            }
         );
+    }
+    //first search account, if not found then createAccount
+    searchAccount = (userId) => {
+        var that = this;
+        console.log('searchAccount: Start');
+        let queryString = 'SELECT Id, Name FROM User WHERE Id = \'' + userId + '\'';
+
+        net.query(queryString,
+            (response) => {
+                that.setState({user: response.records})
+                let queryAccountString = 'SELECT Id, Name FROM Account WHERE Name = \'' + this.state.user[0].Name + '\'';
+                //get the account id
+                net.query(queryAccountString,
+                    (response) => {
+                        that.setState({account: response.records});
+                        if(that.state.account.length < 1) {
+                            that.createAccount(this.state.user[0].Name);
+                        }
+                    },
+                    (err) => {
+                        console.log('Error:', err);
+                    });
+            }
+        );
+        console.log('searchAccount: End');
+    }
+
+    createAccount = (accountName) => {
+        console.log('create account: start', accountName);
+        var that = this;
+        //create an order item
+        net.create('Account',
+            {
+                "Name": accountName
+            },
+            (response) => {
+                console.log('account record created: ', response);
+                that.setState({account: response})
+                console.log('account record : ', that.state.account.id);
+            },
+            (err) => {
+                console.log('account record creation failed: ', err);
+            });
+        console.log('create account: end');
     }
 
     render(): React.ReactElement<any> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
@@ -63,7 +118,6 @@ export default class ProductList extends Component{
                     //data={this.state.data}
                     data={
                         this.state.product.filter(item => {
-                            console.log('data() item name : ', item.Product2.Name);
                             return !this.state.search ||
                                 item.Product2.Name.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1
                         })
