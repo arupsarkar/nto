@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, StyleSheet, Image, TextInput, Button, TouchableHighlight} from 'react-native';
+import {View, Text, FlatList, StyleSheet, Image, TextInput, Button, TouchableHighlight, AlertIOS} from 'react-native';
 import {oauth, net} from 'react-native-force';
 import getPBEId from "../Utils/getPriceBookEntryId";
 
@@ -81,6 +81,17 @@ export default class ShoppingCart extends Component{
                 console.log('Order Item record created: ', response);
                 that.setState({orderItem: response})
                 console.log('Order Item record : ', that.state.orderItem.id);
+                AlertIOS.alert(
+                    'Confirmation !!!',
+                    'Successfully created order and order product, Order Item Id: ' + that.state.orderItem.id,
+                    [
+                        {
+                            text: 'Ok',
+                            onPress: () => console.log('Ok Pressed'),
+                            style: 'cancel',
+                        }
+                    ],
+                );
             },
             (err) => {
                 console.log('OrderItem record creation failed: ', err);

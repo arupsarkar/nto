@@ -7,7 +7,7 @@ import {
     StyleSheet,
     TextInput,
     ActivityIndicator,
-    ToastAndroid, Image, ScrollView, Button, TouchableHighlight
+    AlertIOS, Image, ScrollView, Button, TouchableHighlight
 } from 'react-native';
 import {
     KeyboardAwareScrollView
@@ -67,8 +67,19 @@ export default class AddReview extends Component{
             },
             (response) => {
                 console.log('post created: ', response);
-                that.setState({chatter: response})
+                that.setState({chatter: response});
                 console.log('post record : ', that.state.chatter.id);
+                AlertIOS.alert(
+                    'Confirmation !!!',
+                    'Successfully created chatter post, Chatter Feed Id: ' + that.state.chatter.id,
+                    [
+                        {
+                            text: 'Ok',
+                            onPress: () => console.log('Ok Pressed'),
+                            style: 'cancel',
+                        }
+                    ],
+                );
             },
             (err) => {
                 console.log('chatter post creation failed: ', err);
