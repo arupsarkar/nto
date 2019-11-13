@@ -25,7 +25,7 @@
  */
 
 import React, {Component} from 'react';
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator, TabNavigator} from 'react-navigation';
 import {createAppContainer, createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 // import { createStackNavigator } from 'react-navigation-stack';
 // import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';

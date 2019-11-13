@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, StyleSheet, Image, TextInput, Button} from 'react-native';
+import {View, Text, FlatList, StyleSheet, Image, TextInput, Button, TouchableHighlight} from 'react-native';
 import {oauth, net} from 'react-native-force';
 import getPBEId from "../Utils/getPriceBookEntryId";
 
@@ -139,7 +139,8 @@ export default class ShoppingCart extends Component{
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'stretch',
-                paddingTop: 20
+                paddingTop: 20,
+                paddingBottom: 50
             }}>
                 <Text>{item.Product2.Name}</Text>
                 <Text style={styles.addressText}>{item.Product2.Description}</Text>
@@ -157,10 +158,18 @@ export default class ShoppingCart extends Component{
                         resizeMode="contain"
                     />
                 </View>
-                <Button
-                    title="Buy"
-                    onPress={this.buy}>
-                </Button>
+                {/*<Button*/}
+                {/*    title="Buy"*/}
+                {/*    onPress={this.buy}>*/}
+                {/*</Button>*/}
+                <View style={styles.edges}>
+                    <TouchableHighlight
+                        onPress={ this.buy}
+                        style={styles.button}
+                        underlayColor='#5398DC'>
+                        <Text style={styles.buttonText}>Buy</Text>
+                    </TouchableHighlight>
+                </View>
             </View>
 
 

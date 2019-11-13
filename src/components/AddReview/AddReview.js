@@ -7,7 +7,7 @@ import {
     StyleSheet,
     TextInput,
     ActivityIndicator,
-    ToastAndroid, Image, ScrollView, Button
+    ToastAndroid, Image, ScrollView, Button, TouchableHighlight
 } from 'react-native';
 import {
     KeyboardAwareScrollView
@@ -86,9 +86,9 @@ export default class AddReview extends Component{
         return (
             <KeyboardAwareScrollView style={{ flex: 1, backgroundColor: '#FFF' }}>
                 <View style={styles.root}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={this.close}>
+                    {/*<TouchableOpacity*/}
+                    {/*    style={styles.button}*/}
+                    {/*    onPress={this.close}>*/}
                         {/*<Icon name="close" size={30} color="#0d39ff"/>*/}
 
                         <View style={styles.infoHeader}>
@@ -124,12 +124,20 @@ export default class AddReview extends Component{
                             alignItems: 'stretch',
                             paddingTop: 20
                         }}>
-                            <Button
-                                title="Post"
-                                onPress={this.post}>
-                            </Button>
+                            {/*<Button*/}
+                            {/*    title="Post"*/}
+                            {/*    onPress={this.post}>*/}
+                            {/*</Button>*/}
+                            <View style={styles.edges}>
+                                <TouchableHighlight
+                                    onPress={ this.post}
+                                    style={styles.button}
+                                    underlayColor='#5398DC'>
+                                    <Text style={styles.buttonText}>Post to Chatter</Text>
+                                </TouchableHighlight>
+                            </View>
                         </View>
-                    </TouchableOpacity>
+                    {/*</TouchableOpacity>*/}
                 </View>
             </KeyboardAwareScrollView>
         );
@@ -143,9 +151,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         paddingTop: 20
-    },
-    button: {
-        paddingHorizontal: 10
     },
     addReview: {
         fontSize: 25,
@@ -200,5 +205,26 @@ const styles = StyleSheet.create({
         flex: 1,
         flexWrap: 'wrap',
         marginTop: 20,
+    },
+    edges: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 5,
+        minWidth: 60
+    },
+    button: {
+        borderWidth: 1,
+        borderColor: '#0066cc',
+        borderRadius: 14,
+        paddingHorizontal: 10,
+        paddingVertical: 3,
+        backgroundColor: '#fff',
+        marginTop: 10
+    },
+    buttonText: {
+        color: '#0066cc',
+        fontSize: 12,
+        textAlign: 'center'
     }
 });

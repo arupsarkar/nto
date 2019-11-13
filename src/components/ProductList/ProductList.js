@@ -98,7 +98,8 @@ export default class ProductList extends Component{
         return (
             <View style={{
                 flex: 1,
-                backgroundColor: '#FFFFFF'
+                backgroundColor: '#FFFFFF',
+                paddingBottom: 50
             }}>
 
                 {/*<View style={{*/}
@@ -147,5 +148,14 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 18,
         height: 44,
-    }
+    },
+    input: {
+        padding: 10,
+        paddingHorizontal: 20,
+        fontSize: 16,
+        color: '#4444',
+        borderBottomWidth: 1,
+        borderColor: '#ddd',
+        backgroundColor: '#F5F5F5'
+    },
 });

@@ -6,7 +6,7 @@ import {
     ScrollView,
     Image,
     StyleSheet,
-    TouchableOpacity, Button
+    TouchableOpacity, Button, TouchableHighlight
 } from 'react-native';
 
 
@@ -47,10 +47,18 @@ export default class ProductReview extends Component{
                     <Text style={styles.name}>{item.Product2.Name}</Text>
                     <Text style={styles.address}>{item.Product2.Description}</Text>
                     <View style={styles.edges}>
-                        <Button
-                            title="Add Review"
-                            onPress={this.addReview}>
-                        </Button>
+                        {/*<Button*/}
+                        {/*    title="Add Review"*/}
+                        {/*    onPress={this.addReview}>*/}
+                        {/*</Button>*/}
+                        <View style={styles.edges}>
+                            <TouchableHighlight
+                                onPress={ this.addReview}
+                                style={styles.button}
+                                underlayColor='#5398DC'>
+                                <Text style={styles.buttonText}>Add Review</Text>
+                            </TouchableHighlight>
+                        </View>
                     </View>
                 </View>
             </ScrollView>
@@ -106,5 +114,12 @@ const styles = StyleSheet.create({
         color: '#0066cc',
         fontSize: 12,
         textAlign: 'center'
+    },
+    edges: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 5,
+        minWidth: 60
     }
 });

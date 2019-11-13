@@ -5,7 +5,8 @@ import {
     StyleSheet,
     TouchableHighlight,
     Image,
-    Button
+    Button,
+    TouchableOpacity
 } from 'react-native'
 import { withNavigation } from 'react-navigation';
 import renderIf from "../Utils/renderIf";
@@ -74,22 +75,36 @@ export default class ProductRow extends Component{
                     </View>
 
 
+                    {/*<View style={styles.edges}>*/}
+                    {/*    <Button*/}
+                    {/*        title="Review"*/}
+                    {/*        onPress={this.infoPressed}>*/}
+                    {/*    </Button>*/}
+                    {/*</View>*/}
                     <View style={styles.edges}>
-                        <Button
-                            title="Review"
-                            onPress={this.infoPressed}>
-                        </Button>
+                        <TouchableHighlight
+                            onPress={ this.infoPressed}
+                            style={styles.button}
+                            underlayColor='#5398DC'>
+                            <Text style={styles.buttonText}>Review</Text>
+                        </TouchableHighlight>
                     </View>
-
                 </View>
 
+                {/*<View style={styles.edges}>*/}
+                {/*    <Button*/}
+                {/*        title="Add to Cart"*/}
+                {/*        onPress={this.orderPressed}>*/}
+                {/*    </Button>*/}
+                {/*</View>*/}
                 <View style={styles.edges}>
-                    <Button
-                        title="Add to Cart"
-                        onPress={this.orderPressed}>
-                    </Button>
+                    <TouchableHighlight
+                        onPress={ this.orderPressed}
+                        style={styles.button}
+                        underlayColor='#5398DC'>
+                        <Text style={styles.buttonText}>Add to Cart</Text>
+                    </TouchableHighlight>
                 </View>
-
 
             </View>
         );
