@@ -30,9 +30,7 @@ export default class ProductReview extends Component{
 
     render(): React.ReactElement<any> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         const item = this.props.navigation.getParam('item');
-        console.log('Product Name', item.Product2.Name);
-        console.log('Product Id', item.Product2.Id);
-        console.log('Product Description', item.Product2.Description);
+        this.state.productItem = item;
         return (
             <ScrollView style={styles.root}>
                 <View style={styles.infoHeader}>
