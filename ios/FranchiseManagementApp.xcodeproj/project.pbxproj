@@ -11,8 +11,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		4F3AFF401DC2C79E006FF6B0 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3AFF3E1DC2C79E006FF6B0 /* InitialViewController.m */; };
 		6F00A4EBBB37F8CE9D7F4535 /* libPods-FranchiseManagementApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A9CFAC4F2F0A1FDF2E7669 /* libPods-FranchiseManagementApp.a */; };
-		B7168FBE1FACC7EB00A48DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FBD1FACC7EB00A48DB5 /* LaunchScreen.storyboard */; };
 		B77BD8AF2113632C0036B284 /* bootconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B77BD8AE2113632C0036B284 /* bootconfig.plist */; };
+		E6CF90F323805C960008939D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA8CA051F071C3300448B51 /* Images.xcassets */; };
+		E6CF90F423805C9E0008939D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7168FBD1FACC7EB00A48DB5 /* LaunchScreen.storyboard */; };
+		E6CF90F523806B030008939D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,16 +23,16 @@
 		13B07F961A680F5B00A75B9A /* FranchiseManagementApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FranchiseManagementApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FranchiseManagementApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FranchiseManagementApp/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FranchiseManagementApp/Info.plist; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/arup.sarkar/projects/mobile/FranchiseManagementApp/ios/FranchiseManagementApp/Info.plist; sourceTree = "<absolute>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FranchiseManagementApp/main.m; sourceTree = "<group>"; };
 		4F3AFF3D1DC2C79E006FF6B0 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = FranchiseManagementApp/InitialViewController.h; sourceTree = "<group>"; };
 		4F3AFF3E1DC2C79E006FF6B0 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = FranchiseManagementApp/InitialViewController.m; sourceTree = "<group>"; };
 		4FF12F8E1DCA93E2004D9EF9 /* FranchiseManagementApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = FranchiseManagementApp.entitlements; path = FranchiseManagementApp/FranchiseManagementApp.entitlements; sourceTree = "<group>"; };
 		78A9CFAC4F2F0A1FDF2E7669 /* libPods-FranchiseManagementApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FranchiseManagementApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE79D28E6E57F5B77FA24716 /* Pods-FranchiseManagementApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FranchiseManagementApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FranchiseManagementApp/Pods-FranchiseManagementApp.release.xcconfig"; sourceTree = "<group>"; };
-		B7168FBD1FACC7EB00A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		B7168FBD1FACC7EB00A48DB5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		B77BD8AE2113632C0036B284 /* bootconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bootconfig.plist; path = FranchiseManagementApp/bootconfig.plist; sourceTree = "<group>"; };
-		CEA8CA051F071C3300448B51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/Images.xcassets"; sourceTree = "<group>"; };
+		CEA8CA051F071C3300448B51 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "../mobile_sdk/SalesforceMobileSDK-iOS/shared/resources/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +183,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6CF90F523806B030008939D /* Info.plist in Resources */,
+				E6CF90F423805C9E0008939D /* LaunchScreen.storyboard in Resources */,
 				B77BD8AF2113632C0036B284 /* bootconfig.plist in Resources */,
-				B7168FBE1FACC7EB00A48DB5 /* LaunchScreen.storyboard in Resources */,
+				E6CF90F323805C960008939D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		0D1647048E9655B7745B0762 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -267,6 +271,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = QYYB9FH2U5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -280,9 +285,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sigma.fn.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.fn.FranchiseManagementApp;
 				PRODUCT_NAME = FranchiseManagementApp;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -296,6 +301,7 @@
 				CODE_SIGN_ENTITLEMENTS = FranchiseManagementApp/FranchiseManagementApp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QYYB9FH2U5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -309,9 +315,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sigma.fn.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigma.fn.FranchiseManagementApp;
 				PRODUCT_NAME = FranchiseManagementApp;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
